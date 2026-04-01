@@ -1,2 +1,22 @@
 # GenAI4Dresilience
 Generative AI for Disaster Resilience
+
+# References
+Adhikari, S. (2024). GeoAI for Natural Disaster Assessment. Proceedings of the 33rd ACM International Conference on Information and Knowledge Management, CIKM ’24, 5431–5434. https://doi.org/10.1145/3627673.3680257 
+Alimonti, G., & Mariani, L. (2024). Is the number of global natural disasters increasing? Environmental Hazards, 23(2), 186–202. https://doi.org/10.1080/17477891.2023.2239807 
+Cai, H., Lam, N. S. N., Qiang, Y., Zou, L., Correll, R. M., & Mihunov, V. (2018). A synthesis of disaster resilience measurement methods and indices. International Journal of Disaster Risk Reduction, 31, 844–855. https://doi.org/10.1016/j.ijdrr.2018.07.015 
+Liang, C., & Li, D. (2026). Generative AI-Enabled Semantic Communication: State-of-the-Art, Applications, and the Way Ahead. IEEE Communications Surveys & Tutorials, 28, 3976–4015. https://doi.org/10.1109/COMST.2025.3649707 
+Mandal, D., Zou, L., Wadhwa, A., Wilkho, R. S., Cai, Z., Zhou, B., Ye, X., Newman, G., Gharaibeh, N., & Güneralp, B. (2026). FlowsDT: A geospatial digital twin for navigating urban flood dynamics. Computers, Environment and Urban Systems, 126, 102414. https://doi.org/10.1016/j.compenvurbsys.2026.102414 
+Raj, A., Shetgaonkar, A., Arora, L., Pradhan, D., Girija, S. S., & Kapoor, S. (2025). AI and Generative AI Transforming Disaster Management: A Survey of Damage Assessment and Response Techniques. 2025 IEEE 49th Annual Computers, Software, and Applications Conference (COMPSAC), 1834–1840. https://doi.org/10.1109/COMPSAC65507.2025.00251 
+Razavi, H., Titidezh, O., Asgary, A., & Bonakdari, H. (2024). Building Resilient Smart Cities: The Role of Digital Twins and Generative AI in Disaster Management Strategy. In S. Pourroostaei Ardakani & A. Cheshmehzangi (Eds.), Digital Twin Computing for Urban Intelligence (pp. 95–118). Springer Nature. https://doi.org/10.1007/978-981-97-8483-7_5 
+Schneider, J. (2024). Explainable Generative AI (GenXAI): A survey, conceptualization, and research agenda. Artificial Intelligence Review, 57(11), 289. https://doi.org/10.1007/s10462-024-10916-x 
+Yang, Y., Zou, L., Gong, W., Fu, K., Li, Z., Wang, S., Zhou, B., Cai, H., & Tian, H. (2026). DamageArbiter: A CLIP-Enhanced Multimodal Arbitration Framework for Hurricane Damage Assessment from Street-View Imagery (arXiv:2603.14837). arXiv. https://doi.org/10.48550/arXiv.2603.14837 
+Yang, Y., Zou, L., & Jepson, W. (2026, March 21). Satellite-to-Street: Synthesizing Post-Disaster Views from Satellite Imagery via Generative Vision Models. arXiv.Org. https://arxiv.org/abs/2603.20697v1 
+Yang, Y., Zou, L., Zhou, B., Li, D., Lin, B., Abedin, J., & Yang, M. (2025). Hyperlocal disaster damage assessment using bi-temporal street-view imagery and pre-trained vision models. Computers, Environment and Urban Systems, 121, 102335. https://doi.org/10.1016/j.compenvurbsys.2025.102335 
+Yao, H., Zhang, R., Huang, J., Zhang, J., Wang, Y., Fang, B., Zhu, R., Jing, Y., Liu, S., Li, G., & Tao, D. (2025). A Survey on Agentic Multimodal Large Language Models (arXiv:2510.10991). arXiv. https://doi.org/10.48550/arXiv.2510.10991 
+Zhou, B., Zou, L., Mostafavi, A., Lin, B., Yang, M., Gharaibeh, N., Cai, H., Abedin, J., & Mandal, D. (2022). VictimFinder: Harvesting rescue requests in disaster response from social media with BERT. Computers, Environment and Urban Systems, 95, 101824. https://doi.org/10.1016/j.compenvurbsys.2022.101824 
+Zhou, B., Zou, L., Yang, M., Lin, B., Mandal, D., Abedin, J., Cai, H., Ji, S., Klein, A., & Tian, H. (2026). Rapid Disaster Response and Damage Estimation with Social Media and Pretrained Large Language Models: Insights from Multiple Hurricanes. Annals of the American Association of Geographers, 116(3), 501–523. https://doi.org/10.1080/24694452.2025.2560491 
+Zou, L., Lam, N. S. N., Cai, H., & Qiang, Y. (2018). Mining Twitter Data for Improved Understanding of Disaster Resilience. Annals of the American Association of Geographers, 108(5), 1422–1441. https://doi.org/10.1080/24694452.2017.1421897 
+Zou, L., Lam, N. S. N., Shams, S., Cai, H., Meyer, M. A., Yang, S., Lee, K., Park, S.-J., & Reams, M. A. (2020). Social and geographical disparities in Twitter use during Hurricane Harvey. In Social Sensing and Big Data Computing for Disaster Management. Routledge. 
+Zou, L., Mostafavi, A., Zhou, B., Lin, B., Mandal, D., Yang, M., Abedin, J., & Cai, H. (2023). GeoAI for Disaster Response. In Handbook of Geospatial Artificial Intelligence. CRC Press. 
+
