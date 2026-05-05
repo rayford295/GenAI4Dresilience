@@ -1,1 +1,7 @@
+# Code
 
+This folder currently contains lightweight public demonstration code only.
+
+- `map.py`: visualizes approximate Hurricane Ian and Hurricane Milton locations over Florida.
+
+The unpublished manuscript pipeline, prompts, evaluation scripts, model outputs, and case-study data are intentionally not released in this repository at this stage.
