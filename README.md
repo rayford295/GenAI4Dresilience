@@ -1,5 +1,7 @@
 # GenAI4Dresilience
 
+> 📦 **Datasets:** [disaster-crossview-datasets](https://github.com/Rayford-AI/disaster-crossview-datasets) — the shared cross-view disaster data backbone for the Rayford-AI org.
+
 **Generative AI for Disaster Resilience**
 
 [中文版](./README_zh.md)
