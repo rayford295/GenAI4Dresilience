@@ -1,0 +1,59 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the chapter below."
+title: "Generative AI for Disaster Resilience"
+type: software
+authors:
+  - family-names: Yang
+    given-names: Yifan
+    orcid: https://orcid.org/0009-0009-9496-6925
+  - family-names: Zou
+    given-names: Lei
+    orcid: https://orcid.org/0000-0001-6206-3558
+  - family-names: Tian
+    given-names: Hao
+    orcid: https://orcid.org/0009-0003-4564-8185
+  - family-names: Zhou
+    given-names: Bing
+    orcid: https://orcid.org/0000-0003-1106-1370
+  - family-names: Abedin
+    given-names: Joynal
+    orcid: https://orcid.org/0000-0001-6203-0959
+  - family-names: Li
+    given-names: Zongrong
+    orcid: https://orcid.org/0009-0008-0933-6439
+  - family-names: Tu
+    given-names: Zhengzhong
+    orcid: https://orcid.org/0000-0002-7594-2292
+repository-code: https://github.com/rayford295/GenAI4Dresilience
+preferred-citation:
+  type: book-chapter
+  title: "Generative AI for Disaster Resilience"
+  authors:
+    - family-names: Yang
+      given-names: Yifan
+    - family-names: Zou
+      given-names: Lei
+    - family-names: Tian
+      given-names: Hao
+    - family-names: Zhou
+      given-names: Bing
+    - family-names: Abedin
+      given-names: Joynal
+    - family-names: Li
+      given-names: Zongrong
+    - family-names: Tu
+      given-names: Zhengzhong
+  collection-title: "Geography in the Age of Generative AI: Innovations in Mapping, Analysis & Geospatial Applications"
+  editors:
+    - family-names: Mai
+      given-names: Gengchen
+    - family-names: Huang
+      given-names: Xiao
+    - family-names: Jain
+      given-names: Devika
+    - family-names: Lunga
+      given-names: Dalton
+  publisher:
+    name: "CRC Press / Taylor & Francis Group"
+  year: 2026
+  notes: "Submitted"

@@ -1,7 +1,12 @@
 # Figures
 
-This folder currently contains only public-safe conceptual visuals.
+Chapter figures (flattened to white background for GitHub rendering).
 
-- `framework.png`: high-level lifecycle framework for GenAI and disaster resilience.
-
-Unpublished manuscript figures, sample imagery, result visualizations, and model-output examples are intentionally not included here.
+| File | Chapter figure |
+|---|---|
+| `fig1_lifecycle_framework.png` | Figure 1. Lifecycle-oriented mapping framework of GenAI capabilities for disaster resilience |
+| `fig2_study_area_and_data.png` | Figure 2. Study area and multimodal data examples for Hurricane Ian (2022) and Hurricane Milton (2024) |
+| `fig3_case_study_workflow.png` | Figure 3. Dataset-specific GenAI workflow for hurricane damage assessment, recognition, and decision support |
+| `fig4_restoration_comparison.png` | Figure 4. Restoration outputs across baseline, planner-based, and Gemini image-only branches (SVI and RSI) |
+| `fig5_disaster_report_example.png` | Figure 5. GenAI-based disaster report generation from multimodal observations |
+| `fig6_reasoning_evaluation.png` | Figure 6. LLM and human evaluation of multimodal disaster reasoning |

@@ -1,0 +1,4 @@
+dataset,total_images,disaster_type,image_type,restored_images,Q_original,Q_baseline,Q_planner,Q_gemini
+"A. Ian",150,Hurricane,Satellite,141,0.62,0.73,0.71,0.69
+"A. Ian",150,Hurricane,SVI,22,0.75,0.78,0.76,0.79
+"B. Milton",150,Hurricane,SVI,4,0.76,0.78,0.78,0.79

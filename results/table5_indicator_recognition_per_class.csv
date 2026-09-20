@@ -1,0 +1,11 @@
+dataset,model,damaged_buildings,debris,downed_power_lines,fallen_trees,flooded_areas
+"A. Ian",Gemini-3-Pro,0.94,0.89,1.00,0.92,0.88
+"A. Ian",Gemini-2.5-Pro,0.57,0.77,0.67,0.63,0.95
+"A. Ian",Gemini-2.5-Flash,0.53,0.76,0.83,0.67,0.94
+"A. Ian",GPT-5.1,0.74,0.84,0.97,0.74,0.91
+"A. Ian",GPT-5.1-mini,0.75,0.81,0.92,0.60,0.90
+"B. Milton",Gemini-3-Pro,0.74,0.80,0.99,0.72,0.99
+"B. Milton",Gemini-2.5-Pro,0.72,0.79,0.77,0.67,0.99
+"B. Milton",Gemini-2.5-Flash,0.78,0.78,0.93,0.68,0.98
+"B. Milton",GPT-5.1,0.97,0.92,1.00,0.91,0.99
+"B. Milton",GPT-5.1-mini,0.78,0.82,0.97,0.74,0.99

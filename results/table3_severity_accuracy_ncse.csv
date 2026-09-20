@@ -1,0 +1,6 @@
+model,accuracy_ian,accuracy_milton,ncse_ian,ncse_milton
+GPT-5.1-mini,0.387,0.503,0.307,0.248
+GPT-5.1,0.573,0.591,0.213,0.218
+Gemini-2.5-Flash,0.360,0.470,0.363,0.299
+Gemini-2.5-Pro,0.380,0.447,0.373,0.327
+Gemini-3-Pro,0.627,0.493,0.190,0.291
