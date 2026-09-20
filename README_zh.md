@@ -1,6 +1,6 @@
 # GenAI4Dresilience（中文导读）
 
-> 本文件仅为中文阅读辅助，[英文 README](./README.md) 为权威版本。
+> 本文件仅为中文阅读辅助，[英文 README](./README.md) 为权威版本。项目网站：https://rayford295.github.io/GenAI4Dresilience/
 
 **生成式人工智能用于灾害韧性** —— 书章 *Generative AI for Disaster Resilience* 的配套仓库。该章已投稿至 **Geography in the Age of Generative AI: Innovations in Mapping, Analysis & Geospatial Applications**（CRC Press / Taylor & Francis），主编：Gengchen Mai（UT Austin）、Xiao Huang（Emory）、Devika Jain（Harvard）、Dalton Lunga（ORNL）。
 

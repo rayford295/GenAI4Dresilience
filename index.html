@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generative AI for Disaster Resilience</title>
+<meta name="description" content="Companion site for the book chapter Generative AI for Disaster Resilience: a lifecycle framework and a Florida hurricane case study using GenAI for damage assessment.">
+<meta property="og:title" content="Generative AI for Disaster Resilience">
+<meta property="og:description" content="Lifecycle framework + hurricane case study. Chapter in Geography in the Age of Generative AI (CRC Press).">
+<meta property="og:image" content="https://rayford295.github.io/GenAI4Dresilience/figure/fig1_lifecycle_framework.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d1420; --ink-2:#1b2536; --ink-3:#334155;
+  --paper:#f6f3ec; --paper-2:#ede8dc; --line:#d9d2c2;
+  --storm:#14304a; --storm-2:#1f4a6e;
+  --amber:#e0862e; --amber-2:#f4b15e; --coral:#c9503a;
+  --sage:#7a9a6a; --mist:#9fb3c8;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --serif:'Fraunces',Georgia,serif;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--storm-2);text-decoration:none;border-bottom:1px solid rgba(31,74,110,.35)}
+a:hover{border-bottom-color:var(--amber)}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1;margin:0;letter-spacing:-.01em}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--amber)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(246,243,236,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+nav .brand{font-family:var(--serif);font-weight:600;font-size:18px;border:0;color:var(--ink)}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+nav li a{border:0;font-size:14px;color:var(--ink-3);font-weight:500}
+nav li a:hover{color:var(--amber)}
+nav .gh{font-family:var(--mono);font-size:12px;padding:6px 12px;border:1px solid var(--ink);border-radius:999px;color:var(--ink)}
+nav .gh:hover{background:var(--ink);color:var(--paper)}
+@media(max-width:820px){nav ul{display:none}}
+
+/* hero */
+header.hero{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+header.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse 60% 70% at 78% 40%, rgba(31,74,110,.85), transparent 60%),
+  radial-gradient(ellipse 40% 50% at 90% 90%, rgba(224,134,46,.28), transparent 60%);}
+header.hero::after{content:"";position:absolute;inset:0;opacity:.45;pointer-events:none;
+  background-image:repeating-radial-gradient(circle at 78% 40%, transparent 0 34px, rgba(159,179,200,.09) 35px 36px);}
+.hero .wrap{position:relative;padding:96px 28px 80px;display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:end}
+.hero h1{font-size:clamp(44px,6.2vw,84px);font-weight:400;font-variation-settings:"opsz" 144;margin:20px 0 26px}
+.hero h1 em{font-style:italic;color:var(--amber-2);font-weight:300}
+.hero .lede{font-size:19px;color:#c7cfda;max-width:620px;font-weight:300}
+.hero .venue{border-left:2px solid var(--amber);padding:6px 0 6px 18px;color:#dfe5ee;font-size:15px}
+.hero .venue strong{display:block;font-family:var(--serif);font-size:19px;font-weight:500;color:#fff;margin-bottom:4px}
+.hero .venue span{color:var(--mist);font-size:13.5px}
+.hero .ctas{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:13px;padding:11px 18px;border-radius:4px;border:1px solid var(--amber);color:var(--amber-2)}
+.btn.primary{background:var(--amber);color:var(--ink);font-weight:500}
+.btn:hover{filter:brightness(1.1)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(159,179,200,.25);border:1px solid rgba(159,179,200,.25)}
+.stat{background:rgba(13,20,32,.75);padding:22px 20px}
+.stat b{display:block;font-family:var(--serif);font-size:38px;font-weight:300;color:#fff;line-height:1}
+.stat small{display:block;margin-top:8px;font-size:12.5px;color:var(--mist);line-height:1.4}
+.stat .tag{font-family:var(--mono);font-size:10.5px;color:var(--amber-2);letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr;padding:64px 28px 56px}}
+
+/* sections */
+section{padding:88px 0;border-bottom:1px solid var(--line)}
+section h2{font-size:clamp(30px,3.6vw,44px);margin:14px 0 20px}
+.intro{font-size:19px;color:var(--ink-2);max-width:760px;font-weight:300}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:820px){.two{grid-template-columns:1fr}}
+figure{margin:36px 0 0;}
+figure img{border:1px solid var(--line);background:#fff}
+figcaption{font-size:13.5px;color:var(--ink-3);margin-top:10px;font-family:var(--mono)}
+figcaption b{color:var(--amber);font-weight:500}
+
+/* authors */
+.authors{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:22px;font-size:15px}
+.authors a{border:0;color:var(--ink-2)}
+.authors a::after{content:" ↗";font-size:11px;color:var(--amber)}
+
+/* phases */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.phase{background:#fff;border:1px solid var(--line);border-top:4px solid var(--c);padding:22px 20px;display:flex;flex-direction:column;gap:12px}
+.phase .n{font-family:var(--mono);font-size:11px;color:var(--c);letter-spacing:.12em}
+.phase h3{font-size:22px}
+.phase p{margin:0;font-size:14.5px;color:var(--ink-3);line-height:1.5}
+.phase dl{margin:0;font-size:13.5px;display:grid;gap:8px}
+.phase dt{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+.phase dd{margin:2px 0 0}
+@media(max-width:1000px){.phases{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.phases{grid-template-columns:1fr}}
+
+/* workflow */
+.steps{counter-reset:s;display:grid;gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:70px 1fr 1fr;gap:28px;padding:30px 0;border-bottom:1px solid var(--line);align-items:start}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--serif);font-size:44px;font-weight:300;color:var(--amber);line-height:1}
+.step h3{font-size:24px;margin-bottom:8px}
+.step p{margin:0;color:var(--ink-3);font-size:15px}
+.step .eq{background:var(--ink);color:#e8e4d8;font-family:var(--mono);font-size:14px;padding:16px 18px;border-radius:4px;line-height:1.7}
+.step .eq i{color:var(--amber-2);font-style:normal}
+.step .eq small{display:block;color:var(--mist);font-size:12px;margin-top:6px;font-family:var(--sans)}
+@media(max-width:820px){.step{grid-template-columns:50px 1fr}.step .eq{grid-column:2}}
+
+/* datasets */
+.ds{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.card{background:#fff;border:1px solid var(--line);padding:22px 24px}
+.card .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.card h3{font-size:24px;margin:6px 0 8px}
+.card p{margin:0;color:var(--ink-3);font-size:15px}
+.card .src{margin-top:12px;font-size:13px;font-family:var(--mono);color:var(--ink-3)}
+@media(max-width:640px){.ds{grid-template-columns:1fr}}
+
+/* results tables */
+.tbl-wrap{overflow-x:auto;margin-top:22px;border:1px solid var(--line);background:#fff}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--paper-2);white-space:nowrap}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);background:var(--paper);font-weight:500}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+td.best{color:var(--coral);font-weight:600}
+tr:last-child td{border-bottom:0}
+.bar{display:inline-block;height:8px;background:var(--storm-2);vertical-align:middle;margin-right:8px;border-radius:1px;opacity:.85}
+.bar.hi{background:var(--coral)}
+.grid-res{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:44px}
+.grid-res h3{font-size:22px;margin-bottom:6px}
+.grid-res p.note{font-size:14.5px;color:var(--ink-3);margin:6px 0 0}
+@media(max-width:900px){.grid-res{grid-template-columns:1fr}}
+.finding{margin-top:40px;background:var(--storm);color:#e9eef4;padding:30px 34px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center}
+.finding b{font-family:var(--serif);font-size:56px;font-weight:300;color:var(--amber-2);line-height:1}
+.finding p{margin:0;font-size:16px;font-weight:300}
+.finding p strong{color:#fff;font-weight:500}
+@media(max-width:640px){.finding{grid-template-columns:1fr}}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.pillar{padding:28px 26px;border:1px solid var(--line);background:#fff;position:relative}
+.pillar::before{content:attr(data-i);position:absolute;top:18px;right:22px;font-family:var(--serif);font-size:54px;font-weight:300;color:var(--paper-2)}
+.pillar h3{font-size:26px;margin-bottom:12px}
+.pillar p{margin:0;font-size:15px;color:var(--ink-3)}
+@media(max-width:820px){.pillars{grid-template-columns:1fr}}
+
+/* cite */
+.cite pre{background:var(--ink);color:#e8e4d8;font-family:var(--mono);font-size:13px;padding:22px 24px;border-radius:4px;overflow-x:auto;margin:22px 0 0;line-height:1.6}
+.cite pre .k{color:var(--mist)} .cite pre .v{color:var(--amber-2)}
+.copy{font-family:var(--mono);font-size:12px;background:none;border:1px solid var(--line);padding:7px 12px;border-radius:4px;cursor:pointer;color:var(--ink-3);margin-top:12px}
+.copy:hover{border-color:var(--amber);color:var(--amber)}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:28px}
+.links a{border:1px solid var(--line);background:#fff;padding:16px 18px;display:block;color:var(--ink)}
+.links a small{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:4px}
+.links a:hover{border-color:var(--amber)}
+
+footer{padding:44px 0 60px;font-size:14px;color:var(--ink-3)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero .wrap>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero .wrap>*:nth-child(2){animation-delay:.15s}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top">GenAI4Dresilience</a>
+  <ul>
+    <li><a href="#framework">Framework</a></li>
+    <li><a href="#case">Case study</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#outlook">Outlook</a></li>
+    <li><a href="#cite">Cite</a></li>
+  </ul>
+  <a class="gh" href="https://github.com/rayford295/GenAI4Dresilience">GitHub ↗</a>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Book chapter · submitted 2026</div>
+      <h1>Generative AI for <em>Disaster Resilience</em></h1>
+      <p class="lede">A lifecycle framework that places generation, multimodal understanding, reasoning, and multi-agent collaboration across mitigation, preparedness, response, and recovery, plus a hurricane case study on Florida street-view and satellite imagery.</p>
+      <div class="venue">
+        <strong>Geography in the Age of Generative AI: Innovations in Mapping, Analysis &amp; Geospatial Applications</strong>
+        CRC Press / Taylor &amp; Francis Group<br>
+        <span>Edited by Gengchen Mai (UT Austin), Xiao Huang (Emory), Devika Jain (Harvard), Dalton Lunga (ORNL)</span>
+      </div>
+      <div class="ctas">
+        <a class="btn primary" href="#case">Read the case study</a>
+        <a class="btn" href="https://github.com/rayford295/GenAI4Dresilience/blob/main/docs/lifecycle_framework.md">Full chapter text ↗</a>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="tag">Phases</span><b>4</b><small>Mitigation, preparedness, response, recovery</small></div>
+      <div class="stat"><span class="tag">Image pairs</span><b>600</b><small>Hurricane Ian 2022 + Hurricane Milton 2024</small></div>
+      <div class="stat"><span class="tag">Best accuracy</span><b>0.627</b><small>Gemini-3-Pro on cross-view severity (NCSE 0.190)</small></div>
+      <div class="stat"><span class="tag">Actionability</span><b>2.0–2.8</b><small>Weakest reasoning dimension on a 0–5 scale</small></div>
+    </div>
+  </div>
+</header>
+
+<section id="abstract">
+  <div class="wrap two">
+    <div>
+      <div class="eyebrow">Abstract</div>
+      <h2>From isolated perception to accountable decision support</h2>
+      <div class="authors">
+        <a href="https://orcid.org/0009-0009-9496-6925">Yifan Yang</a>
+        <a href="https://orcid.org/0000-0001-6206-3558">Lei Zou</a>
+        <a href="https://orcid.org/0009-0003-4564-8185">Hao Tian</a>
+        <a href="https://orcid.org/0000-0003-1106-1370">Bing Zhou</a>
+        <a href="https://orcid.org/0000-0001-6203-0959">Joynal Abedin</a>
+        <a href="https://orcid.org/0009-0008-0933-6439">Zongrong Li</a>
+        <a href="https://orcid.org/0000-0002-7594-2292">Zhengzhong Tu</a>
+      </div>
+    </div>
+    <div>
+      <p class="intro">Generative AI has shown promising progress in content generation, multimodal understanding, and reasoning, presenting new opportunities for disaster resilience research and practice. Disaster resilience is the capacity of socio-ecological-infrastructural systems to withstand, adapt to, recover from, and maintain continuous or improved operation in the face of disasters.</p>
+      <p>This chapter proposes a framework that systematically elaborates on how GenAI can be incorporated into resilience-improvement tasks across the four phases of emergency management. Using two recent hurricanes in Florida as examples, it demonstrates GenAI processing multi-source geospatial data, remote sensing and street-view imagery, for fine-grained damage assessment, and it closes with key challenges and future directions.</p>
+    </div>
+  </div>
+</section>
+
+<section id="framework">
+  <div class="wrap">
+    <div class="eyebrow">01 · Lifecycle framework</div>
+    <h2>GenAI as a cross-cutting layer over the disaster cycle</h2>
+    <p class="intro">Information produced during response and recovery feeds future mitigation and preparedness. Multi-agent orchestration coordinates specialized functions, while human oversight and validation stay essential throughout.</p>
+    <figure>
+      <img src="figure/fig1_lifecycle_framework.png" alt="Lifecycle-oriented mapping framework of GenAI capabilities for disaster resilience" loading="lazy">
+      <figcaption><b>Figure 1.</b> A lifecycle-oriented mapping framework of generative AI capabilities for disaster resilience.</figcaption>
+    </figure>
+    <div class="phases">
+      <div class="phase" style="--c:#c9503a">
+        <span class="n">PHASE 01</span><h3>Mitigation</h3>
+        <p>Losses must be estimated before damage is observable, and archives under-represent rare, compound, and cascading hazards.</p>
+        <dl><dt>GenAI adds</dt><dd>Counterfactual scenarios, connected evidence, explained interventions</dd>
+            <dt>Safeguard</dt><dd>Separate observed, modeled, and synthetic evidence; expert validation</dd></dl>
+      </div>
+      <div class="phase" style="--c:#e0862e">
+        <span class="n">PHASE 02</span><h3>Preparedness</h3>
+        <p>The political economy of false alarms, on data streams with different latencies, resolutions, and credibility.</p>
+        <dl><dt>GenAI adds</dt><dd>A coherent situation model, bounded gap-filling, forecasts with explicit uncertainty</dd>
+            <dt>Safeguard</dt><dd>Auditability under time pressure; humans issue public warnings</dd></dl>
+      </div>
+      <div class="phase" style="--c:#1f4a6e">
+        <span class="n">PHASE 03</span><h3>Response</h3>
+        <p>Hours-scale decisions on incomplete, spatially biased evidence that must be aligned across satellite, aerial, and ground views.</p>
+        <dl><dt>GenAI adds</dt><dd>Cross-view alignment, severity with evidence chains, role-based agents</dd>
+            <dt>Safeguard</dt><dd>Traceable, contestable outputs; life-critical calls stay human</dd></dl>
+      </div>
+      <div class="phase" style="--c:#7a9a6a">
+        <span class="n">PHASE 04</span><h3>Recovery</h3>
+        <p>Institutional incentives favor rapid restoration over risk-informed transformation; recovery trajectories are uneven.</p>
+        <dl><dt>GenAI adds</dt><dd>Alternative rebuilding pathways, explicit trade-offs, simulated negotiations</dd>
+            <dt>Safeguard</dt><dd>Report distributions not averages; real participation, not simulated</dd></dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="case">
+  <div class="wrap">
+    <div class="eyebrow">02 · Case study</div>
+    <h2>Two Florida hurricanes, two kinds of visual evidence</h2>
+    <p class="intro">Labels from both source datasets were harmonized into one three-level scale: minor, moderate, severe. The case study never assumes every input has both remote sensing and street view; it tests how GenAI helps at three concrete steps.</p>
+    <div class="ds">
+      <div class="card"><span class="k">Dataset A · cross-view</span><h3>Hurricane Ian, 2022</h3>
+        <p>300 pairs of post-disaster street-view imagery and post-disaster remote sensing imagery at matched locations.</p>
+        <div class="src">CVDisaster · H. Li et al., 2025</div></div>
+      <div class="card"><span class="k">Dataset B · bi-temporal</span><h3>Hurricane Milton, 2024</h3>
+        <p>300 pairs of pre-disaster (2023) and post-disaster (2024) street-view imagery from the same region.</p>
+        <div class="src">BiTemporal · Yang et al., 2025</div></div>
+    </div>
+    <figure>
+      <img src="figure/fig2_study_area_and_data.png" alt="Study area map with Ian and Milton tracks and sample imagery" loading="lazy">
+      <figcaption><b>Figure 2.</b> Study area and multimodal data examples for Hurricane Ian (2022) and Hurricane Milton (2024).</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <div><h3>Selective image restoration</h3>
+          <p>No-reference IQA features (brightness statistics, dark/bright pixel ratios, Laplacian variance, a noise proxy, a NIQE-inspired metric) screen each image. Only degraded images are restored, through a heuristic baseline, a Gemini planner that picks a constrained deterministic toolchain, or an image-only Gemini enhancement. Output is kept only if it beats the original by a preset margin.</p></div>
+        <div class="eq"><i>Q</i> = 0.4·C + 0.4·S + 0.2·N<small>C, S, N: normalized contrast, sharpness, NIQE-proxy. Higher is better.</small></div>
+      </div>
+      <div class="step">
+        <div><h3>GenAI-assisted damage recognition</h3>
+          <p>Vision-language models output an overall severity, a confidence score, and visibility flags for five indicators: debris, fallen trees, flooded roads, damaged buildings, downed lines. Cross-view pairs are read jointly; bi-temporal pairs are compared for change.</p></div>
+        <div class="eq">NCSE = (1/N) Σ |y<sub>i</sub> − ŷ<sub>i</sub>| / (K − 1)<small>Ordinal-aware error, 0 = perfect, 1 = every prediction in the most distant class. K = 3 severity levels.</small></div>
+      </div>
+      <div class="step">
+        <div><h3>Reasoning and decision support</h3>
+          <p>Models write structured disaster reports with causal interpretation and recovery actions. Reports are scored 0–5 on factual consistency, causal plausibility, information completeness, and actionability by an LLM judge (GPT-5.2) and by three graduate-student evaluators.</p></div>
+        <div class="eq">score = mean(factual, plausibility, completeness, actionability)<small>Likert 0–5. Human score averaged over three evaluators.</small></div>
+      </div>
+    </div>
+    <figure>
+      <img src="figure/fig3_case_study_workflow.png" alt="Three-stage GenAI workflow diagram" loading="lazy" style="max-width:760px;margin:0 auto">
+      <figcaption><b>Figure 3.</b> Dataset-specific GenAI workflow for hurricane damage assessment, recognition, and decision support.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <div class="eyebrow">03 · Results</div>
+    <h2>No single model wins everywhere</h2>
+    <p class="intro">Gemini-3-Pro leads on cross-view data, GPT-5.1 leads on bi-temporal data, and in both settings the most accurate model also has the lowest severity-aware error.</p>
+
+    <div class="grid-res">
+      <div>
+        <h3>Image restoration</h3>
+        <p class="note">Composite quality score Q before and after each branch (Table 2).</p>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Dataset</th><th>Type</th><th>Restored</th><th>Original</th><th>Baseline</th><th>Planner</th><th>Gemini</th></tr></thead>
+          <tbody>
+          <tr><td>A. Ian</td><td>Satellite</td><td class="num">141 / 150</td><td class="num">0.62</td><td class="num best">0.73</td><td class="num">0.71</td><td class="num">0.69</td></tr>
+          <tr><td>A. Ian</td><td>Street view</td><td class="num">22 / 150</td><td class="num">0.75</td><td class="num">0.78</td><td class="num">0.76</td><td class="num best">0.79</td></tr>
+          <tr><td>B. Milton</td><td>Street view</td><td class="num">4 / 150</td><td class="num">0.76</td><td class="num">0.78</td><td class="num">0.78</td><td class="num best">0.79</td></tr>
+          </tbody></table></div>
+      </div>
+      <div>
+        <h3>Severity classification</h3>
+        <p class="note">Accuracy and NCSE (lower is better) across five models (Table 3).</p>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Model</th><th>Acc · Ian</th><th>Acc · Milton</th><th>NCSE · Ian</th><th>NCSE · Milton</th></tr></thead>
+          <tbody>
+          <tr><td>GPT-5.1-mini</td><td class="num">0.387</td><td class="num">0.503</td><td class="num">0.307</td><td class="num">0.248</td></tr>
+          <tr><td>GPT-5.1</td><td class="num">0.573</td><td class="num best">0.591</td><td class="num">0.213</td><td class="num best">0.218</td></tr>
+          <tr><td>Gemini-2.5-Flash</td><td class="num">0.360</td><td class="num">0.470</td><td class="num">0.363</td><td class="num">0.299</td></tr>
+          <tr><td>Gemini-2.5-Pro</td><td class="num">0.380</td><td class="num">0.447</td><td class="num">0.373</td><td class="num">0.327</td></tr>
+          <tr><td>Gemini-3-Pro</td><td class="num best">0.627</td><td class="num">0.493</td><td class="num best">0.190</td><td class="num">0.291</td></tr>
+          </tbody></table></div>
+      </div>
+    </div>
+
+    <div style="margin-top:44px">
+      <h3 style="font-size:22px">Damage-indicator recognition</h3>
+      <p class="note" style="font-size:14.5px;color:var(--ink-3);margin:6px 0 0">Overall F1 on five indicators (Table 4). Bars scaled to 1.0.</p>
+      <div class="tbl-wrap"><table id="f1">
+        <thead><tr><th>Dataset</th><th>Model</th><th>F1</th><th>Recall</th><th>Precision</th><th>Accuracy</th></tr></thead>
+        <tbody>
+        <tr><td>A. Ian</td><td>Gemini-3-Pro</td><td class="num best" data-bar="0.774">0.774</td><td class="num">0.784</td><td class="num">0.799</td><td class="num">0.925</td></tr>
+        <tr><td>A. Ian</td><td>Gemini-2.5-Pro</td><td class="num" data-bar="0.573">0.573</td><td class="num">0.914</td><td class="num">0.503</td><td class="num">0.716</td></tr>
+        <tr><td>A. Ian</td><td>Gemini-2.5-Flash</td><td class="num" data-bar="0.554">0.554</td><td class="num">0.814</td><td class="num">0.540</td><td class="num">0.747</td></tr>
+        <tr><td>A. Ian</td><td>GPT-5.1</td><td class="num" data-bar="0.547">0.547</td><td class="num">0.584</td><td class="num">0.643</td><td class="num">0.840</td></tr>
+        <tr><td>A. Ian</td><td>GPT-5.1-mini</td><td class="num" data-bar="0.497">0.497</td><td class="num">0.579</td><td class="num">0.465</td><td class="num">0.795</td></tr>
+        <tr><td>B. Milton</td><td>GPT-5.1</td><td class="num best" data-bar="0.553">0.553</td><td class="num">0.540</td><td class="num">0.571</td><td class="num">0.955</td></tr>
+        <tr><td>B. Milton</td><td>GPT-5.1-mini</td><td class="num" data-bar="0.466">0.466</td><td class="num">0.486</td><td class="num">0.450</td><td class="num">0.861</td></tr>
+        <tr><td>B. Milton</td><td>Gemini-2.5-Flash</td><td class="num" data-bar="0.435">0.435</td><td class="num">0.439</td><td class="num">0.433</td><td class="num">0.831</td></tr>
+        <tr><td>B. Milton</td><td>Gemini-2.5-Pro</td><td class="num" data-bar="0.427">0.427</td><td class="num">0.468</td><td class="num">0.398</td><td class="num">0.789</td></tr>
+        <tr><td>B. Milton</td><td>Gemini-3-Pro</td><td class="num" data-bar="0.391">0.391</td><td class="num">0.357</td><td class="num">0.512</td><td class="num">0.847</td></tr>
+        </tbody></table></div>
+      <p class="note" style="font-size:14.5px;color:var(--ink-3);margin-top:12px">Per-indicator scores (Table 5): Gemini-3-Pro on Ian reaches 0.94 for damaged buildings, 1.00 for downed lines, 0.92 for fallen trees. GPT-5.1 on Milton is best in every category, with 0.97, 0.92, 1.00, 0.91, 0.99 across buildings, debris, lines, trees, and flooding. Full CSVs in <a href="https://github.com/rayford295/GenAI4Dresilience/tree/main/results">results/</a>.</p>
+    </div>
+
+    <figure>
+      <img src="figure/fig4_restoration_comparison.png" alt="Restoration comparison grid" loading="lazy" style="max-width:820px;margin:0 auto">
+      <figcaption><b>Figure 4.</b> Restoration outputs across baseline enhancement, planner-based restoration, and Gemini image-only optimization for street-view and remote-sensing samples.</figcaption>
+    </figure>
+    <figure>
+      <img src="figure/fig5_disaster_report_example.png" alt="Example disaster report generated from paired imagery" loading="lazy">
+      <figcaption><b>Figure 5.</b> Generative AI-based disaster report generation from multimodal observations.</figcaption>
+    </figure>
+    <figure>
+      <img src="figure/fig6_reasoning_evaluation.png" alt="Heatmaps of LLM and human evaluation scores" loading="lazy">
+      <figcaption><b>Figure 6.</b> LLM and human evaluation of multimodal disaster reasoning.</figcaption>
+    </figure>
+
+    <div class="finding">
+      <b>4.0 → 2.4</b>
+      <p><strong>Descriptive reasoning is strong; actionable reasoning is not.</strong> Factual consistency and causal plausibility mostly exceed 4.0 out of 5, but actionability sits between 2.0 and 2.8 for every model. Human raters agree with the LLM judge on this ranking, and cross-view inputs produce more complete reports than bi-temporal ones.</p>
+    </div>
+  </div>
+</section>
+
+<section id="outlook">
+  <div class="wrap">
+    <div class="eyebrow">04 · Challenges and opportunities</div>
+    <h2>Three complementary directions</h2>
+    <p class="intro">The future of GenAI in disaster resilience depends on balancing increased autonomy with strong principles of responsibility, while closing the equity gap in who can use these tools at all.</p>
+    <div class="pillars">
+      <div class="pillar" data-i="R"><h3>Responsibility</h3><p>Incomplete and biased disaster data, hallucination, and model opacity threaten trust when decisions affect lives and critical infrastructure. Responsible frameworks need transparency, uncertainty quantification, explainability, and governance covering privacy and fairness.</p></div>
+      <div class="pillar" data-i="A"><h3>Autonomy</h3><p>Generation, perception, reasoning, and multi-agent collaboration point toward adaptive, self-improving disaster-intelligence systems. Autonomy must remain reliable under uncertainty, aligned with domain expertise, and under controllable human oversight.</p></div>
+      <div class="pillar" data-i="E"><h3>Equity</h3><p>Compute and API costs mean the regions most exposed to disaster risk are least able to benefit. Data-sovereignty barriers limit transnational response. Remedies: lightweight, locally deployable models, open access, and coordinated data-sharing governance.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="cite" class="cite">
+  <div class="wrap two">
+    <div>
+      <div class="eyebrow">Cite</div>
+      <h2>Reference this chapter</h2>
+      <p style="color:var(--ink-3)">Status: submitted. The BibTeX note and DOI will be updated on publication.</p>
+      <div class="links">
+        <a href="https://github.com/rayford295/GenAI4Dresilience/blob/main/docs/lifecycle_framework.md">Lifecycle framework<small>docs/lifecycle_framework.md</small></a>
+        <a href="https://github.com/rayford295/GenAI4Dresilience/blob/main/docs/case_study.md">Case study<small>docs/case_study.md</small></a>
+        <a href="https://github.com/rayford295/GenAI4Dresilience/blob/main/docs/challenges_and_outlook.md">Challenges &amp; conclusion<small>docs/challenges_and_outlook.md</small></a>
+        <a href="https://github.com/rayford295/GenAI4Dresilience/blob/main/docs/references.md">References (49)<small>docs/references.md</small></a>
+        <a href="https://github.com/rayford295/GenAI4Dresilience/tree/main/results">Result tables<small>results/*.csv</small></a>
+        <a href="https://github.com/Rayford-AI/disaster-crossview-datasets">Datasets hub<small>Rayford-AI/disaster-crossview-datasets</small></a>
+      </div>
+    </div>
+    <div>
+<pre id="bib">@incollection{yang2026genai4dresilience,
+  <span class="k">title</span>     = <span class="v">{Generative AI for Disaster Resilience}</span>,
+  <span class="k">author</span>    = <span class="v">{Yang, Yifan and Zou, Lei and Tian, Hao and Zhou, Bing
+               and Abedin, Joynal and Li, Zongrong and Tu, Zhengzhong}</span>,
+  <span class="k">booktitle</span> = <span class="v">{Geography in the Age of Generative AI: Innovations in
+               Mapping, Analysis \&amp; Geospatial Applications}</span>,
+  <span class="k">editor</span>    = <span class="v">{Mai, Gengchen and Huang, Xiao and Jain, Devika and Lunga, Dalton}</span>,
+  <span class="k">publisher</span> = <span class="v">{CRC Press / Taylor \&amp; Francis Group}</span>,
+  <span class="k">year</span>      = <span class="v">{2026}</span>,
+  <span class="k">note</span>      = <span class="v">{Submitted}</span>
+}</pre>
+      <button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('bib').innerText).then(()=>{this.textContent='Copied';setTimeout(()=>this.textContent='Copy BibTeX',1500)})">Copy BibTeX</button>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div>Yifan Yang · Texas A&amp;M University · <a href="mailto:yyang295@tamu.edu">yyang295@tamu.edu</a> · <a href="https://github.com/rayford295">@rayford295</a></div>
+  <div>Source imagery follows the CVDisaster and BiTemporal dataset licenses. Code: MIT.</div>
+</div></footer>
+
+<script>
+document.querySelectorAll('#f1 td[data-bar]').forEach(td=>{
+  const v=parseFloat(td.dataset.bar), bar=document.createElement('span');
+  bar.className='bar'+(td.classList.contains('best')?' hi':''); bar.style.width=(v*90)+'px';
+  td.prepend(bar);
+});
+</script>
+</body>
+</html>
