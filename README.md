@@ -41,7 +41,7 @@ index.html      project website (GitHub Pages)
 docs/           chapter text: framework, case study, challenges, references
 figure/         Figures 1–6
 results/        Tables 1–5 as CSV
-code/map.py     Hurricane Ian / Milton location map
+code/           map.py (Figure 2 base map), metrics.py (Q and NCSE definitions)
 CITATION.cff
 ```
 

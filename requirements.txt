@@ -1,0 +1,4 @@
+# code/map.py and code/metrics.py
+matplotlib>=3.7
+cartopy>=0.22   # easier via: conda install -c conda-forge cartopy
+numpy>=1.24

@@ -1,5 +1,8 @@
 # Code
 
 - `map.py`: draws the Hurricane Ian and Hurricane Milton study locations over Florida (base map for Figure 2).
+- `metrics.py`: reference implementations of the composite quality score Q (Eq. 1) and NCSE (Eq. 2).
+
+Install: `pip install -r requirements.txt` (cartopy is easiest via conda-forge).
 
 Restoration, recognition, and report-evaluation pipeline code and prompts will be released after the chapter is published.
